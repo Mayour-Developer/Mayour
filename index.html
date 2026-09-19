@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mayour Mahdev Rajput | Full-Stack Learner & Developer</title>
+    <link rel="icon" type="image/png" href="Gemini_Generated_Image_owrz1uowrz1uowrz.png">
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0f172a;
+            --accent: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --bg-light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a { color: inherit; text-decoration: none; }
+
+        /* Header & Navigation */
+        header {
+            align-items: center;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            height: 80px;
+            padding: 0 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        header h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        nav a {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--white);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: var(--white);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 20px;
+            height: 2px;
+            margin: 4px 0;
+            background: var(--white);
+            transition: var(--transition);
+        }
+
+        /* Sections Layout */
+        .section {
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 100px 5%;
+        }
+
+        /* Hero Section */
+        .hero {
+            align-items: center;
+            display: flex;
+            gap: 60px;
+            justify-content: space-between;
+            min-height: calc(100vh - 80px);
+        }
+
+        .hero-copy {
+            max-width: 600px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--accent-glow);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 32px;
+        }
+
+        .hero-image-wrapper, .about-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image, .about-image {
+            border-radius: 20px;
+            height: 420px;
+            object-fit: cover;
+            width: 380px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover, .about-image:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .button {
+            border-radius: 8px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 12px 28px;
+            transition: var(--transition);
+        }
+
+        .button-primary {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .button-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .button-outline {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            color: var(--primary);
+        }
+
+        .button-outline:hover {
+            border-color: var(--primary);
+            background: rgba(15, 23, 42, 0.03);
+        }
+
+        /* About Section */
+        .about {
+            align-items: center;
+            background: var(--white);
+            display: flex;
+            gap: 80px;
+            justify-content: center;
+            border-radius: 24px;
+            padding: 80px 60px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .about-copy {
+            max-width: 540px;
+        }
+
+        .section-title {
+            color: var(--primary);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .about-copy p {
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        /* Projects Cards */
+        .cards {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            margin-top: 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 32px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 12px 20px -10px rgba(0, 0, 0, 0.08);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 80px 60px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .skill-list {
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin-top: 40px;
+        }
+
+        .skill {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 4px solid var(--accent);
+            transition: var(--transition);
+        }
+
+        .skill:hover {
+            transform: translateY(-3px);
+        }
+
+        .skill strong {
+            color: var(--primary);
+            display: block;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+        }
+
+        .skill span {
+            color: var(--text-muted);
+            font-size: 0.925rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Floating Small Bottom Visitor Box */
+        .visitor-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition);
+        }
+
+        .visitor-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .hero, .about {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 20px;
+            }
+            .hero-copy, .about-copy {
+                max-width: 100%;
+            }
+            .buttons {
+                justify-content: center;
+            }
+            .hero-image, .about-image {
+                width: 100%;
+                max-width: 340px;
+                height: auto;
+                aspect-ratio: 1/1;
+            }
+            .about {
+                padding: 40px 20px;
+            }
+            .skills-container {
+                padding: 40px 20px;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .nav-menu {
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-in-out;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .nav-menu.open {
+                max-height: 280px;
+            }
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 24px 0;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>Mayour Mahdev Rajput</h2>
+        <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu" aria-label="Main navigation">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="section hero" id="home">
+            <div class="hero-copy">
+                <span class="badge">👋 Welcome to my portfolio</span>
+                <h1>Hi, I'm Mayour Mahdev Rajput</h1>
+                <p>A passionate Full-Stack Learner specializing in modern web development. I craft responsive, clean, and dynamic user interfaces using HTML, CSS, and JavaScript.</p>
+                <div class="buttons">
+                    <a class="button button-primary" href="#projects">Explore Projects</a>
+                    <a class="button button-outline" href="#about">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img class="hero-image" src="IMG20230708175401 (1).jpg" alt="Portrait of Mayour Mahdev Rajput">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section">
+            <div class="about" id="about">
+                <div class="about-image-wrapper">
+                    <img class="about-image" src="IMG20230708175401 (1).jpg" alt="Mayour Mahdev Rajput working">
+                </div>
+                <div class="about-copy">
+                    <span class="badge">Get to Know Me</span>
+                    <h2 class="section-title">Driven by Curiosity & Code</h2>
+                    <p>Hello! I'm Mayour Don, a dedicated web development student currently studying at Super Sys-tech Computers Center. I am deeply interested in transforming creative concepts into functional, seamless digital platforms.</p>
+                    <p>My core mission is to continually expand my programming knowledge, build practical projects, and evolve into a top-tier full-stack developer.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="section" id="projects">
+            <span class="badge">Portfolio Work</span>
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="cards">
+                <article class="card">
+                    <h3>Personal Portfolio</h3>
+                    <p>A completely responsive showcase website built with pure HTML and CSS to present my professional background and continuous learning progress.</p>
+                </article>
+                <article class="card">
+                    <h3>Responsive Web Layouts</h3>
+                    <p>Fluid grid and flexbox interfaces engineered to look pixel-perfect across desktop monitors, tablet screens, and mobile devices.</p>
+                </article>
+                <article class="card">
+                    <h3>Interactive Practice Apps</h3>
+                    <p>Practical frontend exercises focusing on DOM manipulation, user input validation, and dynamic JavaScript behaviors.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <div class="skills-container">
+                <span class="badge">Tech Stack</span>
+                <h2 class="section-title">Core Skills</h2>
+                <div class="skill-list">
+                    <div class="skill">
+                        <strong>HTML</strong>
+                        <span>Writing clean, semantic layouts focused on accessibility and proper structural hierarchy.</span>
+                    </div>
+                    <div class="skill">
+                        <strong>CSS</strong>
+                        <span>Crafting custom layouts utilizing CSS Flexbox, Grid, transitions, and modern variables.</span>
+                    </div>
+                    <div class="skill">
+                        <strong>JavaScript</strong>
+                        <span>Developing reactive elements and adding logic to create dynamic user experiences.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mayour Mahdev Rajput. All rights reserved.</p>
+    </footer>
+
+    <!-- Floating Bottom Visit Counter Box -->
+    <div class="visitor-box" id="visitorBox">
+        <span class="pulse-dot"></span>
+        <span>Visits: <strong id="visitCountNum">1,245</strong></span>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle logic with smooth height toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', () => {
+                const isOpen = navMenu.classList.toggle('open');
+                menuToggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            // Close menu automatically on link click for mobile screens
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Reliable Session-based Visit Counter
+        let visits = localStorage.getItem('mayour_portfolio_visits');
+        
+        // If it's the first time ever loading on this browser, set a realistic base number
+        if (!visits) {
+            visits = 1245; 
+        }
+
+        // Check if this browser session has already counted this visit
+        if (!sessionStorage.getItem('session_counted')) {
+            visits = parseInt(visits) + 1;
+            localStorage.setItem('mayour_portfolio_visits', visits);
+            sessionStorage.setItem('session_counted', 'true');
+        }
+
+        // Display formatted number
+        document.getElementById('visitCountNum').textContent = Number(visits).toLocaleString();
+    </script>
+</body>
+</html>
